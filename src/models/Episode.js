@@ -1,14 +1,13 @@
 const mongoose = require("mongoose");
 
 const Episode = new mongoose.Schema({
-    _id: string,
-	name: string,
-	description: string,
-	imageUrl: string,
-	episodeSrc: string,
-	isHighlighted: boolean,
-	likes: number,
-	active: boolean
+	name: String,
+	description: String,
+	imageUrl: String,
+	episodeSrc: String,
+	isHighlighted: Boolean,
+	likes: Number,
+	active: Boolean
 });
 
 module.exports = mongoose.model('Episode', Episode);

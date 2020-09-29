@@ -1,12 +1,11 @@
 const mongoose = require("mongoose");
 
 const Comment = new mongoose.Schema({
-    _id: string,
 	userId: DBref,
 	episodeId: DBref,
-	content: string,
-	likes: number,
-	active: boolean
+	content: String,
+	likes: Number,
+	active: Boolean
 
 });
 
