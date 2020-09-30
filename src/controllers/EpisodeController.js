@@ -1,36 +1,73 @@
-const express = require('express');
-const routes = new express.Router();
 const Episode = require('../models/Episode');
 
 
-
-// '<iframe src="https://open.spotify.com/embed-podcast/show/4uAA0AKp3wMuJ227Pfgv9k" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>'
-
 const getEpisodePorId = async (req, res, next) => {
-    try {
-      let episode = await Episode.findById(req.params.id);
-      if (episode === null) {
-        res.status(404).json({erro: 'Não foi encontrado um episódio com o id informado'});
-      } else {
-        req.episode = episode;
-        next();
-      }
-    } catch (erro) {
-      res.status(500).json({erro: 'O id informado não é válido'});
+  try {
+    let episode = await Episode.findById(req.params.id);
+    if (episode === null) {
+      res.status(404).json({ erro: 'Não foi encontrado um episódio com o id informado' });
+    } else {
+      req.episode = episode;
+      next();
     }
-  };
+  } catch (erro) {
+    res.status(500).json({ erro: 'O id informado não é válido' });
+  }
+};
 
-routes.get('/private/episodes', async (req, res) => {
-    res.json(await Episode.find());
-});
+const getEpisodes = async (req, res) => {
+  const { page = 1, size = 10 } = req.query;
 
-routes.post('/private/episodes', async (req, res) => {
-    const {name, description, imageUrl, episodeSrc, isHighlighted} = req.body;
-    likes = 0;
-    active = true;
+  try {
+    const episodes = await Episode.find({ active: true })
+      .limit(size * 1)
+      .skip((page - 1) * size)
+      .exec();
 
-    await new Episode({name, description, imageUrl, episodeSrc, isHighlighted, likes, active}).save();
-    res.status(201).json({'status': 'sucesso'});
-});
+    const count = await Episode.countDocuments();
 
-module.exports = routes;
+    res.json({
+      data: episodes,
+      totalPages: Math.ceil(count / size),
+      currentPage: page
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+const getHighlightedEpisodes = async (req, res) => {
+  res.json(await Episode.find({ isHighlighted: false }));
+};
+
+const postEpisodes = async (req, res) => {
+  const { name, description, imageUrl, episodeSrc, isHighlighted } = req.body;
+  likes = 0;
+  active = true;
+
+  await new Episode({ name, description, imageUrl, episodeSrc, isHighlighted, likes, active }).save();
+  res.status(201).json({ 'status': 'sucesso' });
+}
+
+const editEpisode = async (req, res) => {
+  const { name, description, imageUrl, episodeSrc, isHighlighted, likes, active } = req.body;
+  req.episode.name = name;
+  req.episode.description = description;
+  req.episode.imageUrl = imageUrl;
+  req.episode.episodeSrc = episodeSrc;
+  req.episode.isHighlighted = isHighlighted;
+  req.episode.likes = likes;
+  req.episode.active = active;
+
+  await req.episode.save();
+  res.send('O episódio foi atualizado!');
+}
+
+const deleteEpisode = async (req, res) => {
+  req.episode.active = false;
+  await req.episode.save();
+  res.send('O episódio foi deletado!');
+}
+
+
+module.exports = { getEpisodes, getHighlightedEpisodes, postEpisodes, editEpisode, getEpisodePorId, deleteEpisode };
