@@ -7,6 +7,23 @@ const mapCodeError = {
     11000: 'User already exists'
 }
 
+
+const getUserById = async (req, res, next) => {
+    try {
+      let user = await User.findById(req.params.id);
+      if (user === null) {
+        res.status(404).json({ erro: 'Não foi encontrado um usuário com o id informado' });
+      } else {
+        req.user = user;
+        next();
+      }
+    } catch (erro) {
+      res.status(500).json({ erro: 'O id informado não é válido' });
+    }
+  };
+
+
+
 const formatErrors = (errors) => {
     const errorsArr = [];
     const keys = Object.keys(errors);
@@ -75,6 +92,7 @@ module.exports = {
             res.json({ _id: newUser._id, username: newUser.username });
         }
 
-    }
+    },
+    getUserById
 }
 
