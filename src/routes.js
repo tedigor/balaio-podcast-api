@@ -19,7 +19,7 @@ routes.post('/users', UserController.createUser);
 routes.get('/episodes', EpisodeController.getEpisodes);
 routes.post('/private/episodes', EpisodeController.postEpisodes);
 routes.get('/episodes/highlights', EpisodeController.getHighlightedEpisodes);
-routes.put('/private/episodes/:id', EpisodeController.getEpisodePorId, EpisodeController.editEpisode);
+routes.put('/private/episodes/:id', EpisodeController.editEpisode);
 routes.delete('/private/episodes/:id', EpisodeController.getEpisodePorId, EpisodeController.deleteEpisode);
 
 module.exports = routes;

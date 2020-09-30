@@ -50,16 +50,8 @@ const postEpisodes = async (req, res) => {
 }
 
 const editEpisode = async (req, res) => {
-  const { name, description, imageUrl, episodeSrc, isHighlighted, likes, active } = req.body;
-  req.episode.name = name;
-  req.episode.description = description;
-  req.episode.imageUrl = imageUrl;
-  req.episode.episodeSrc = episodeSrc;
-  req.episode.isHighlighted = isHighlighted;
-  req.episode.likes = likes;
-  req.episode.active = active;
-
-  await req.episode.save();
+  const id = req.params.id;
+  await Episode.findOneAndUpdate({ _id: id }, { ...req.body });
   res.send('O episódio foi atualizado!');
 }
 
