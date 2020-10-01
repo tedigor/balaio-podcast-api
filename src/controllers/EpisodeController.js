@@ -75,4 +75,9 @@ const findEpisodeById = async (req, res) => {
   res.json(await Episode.findById(req.episode._id));
 }
 
-module.exports = { getEpisodes, getHighlightedEpisodes, postEpisodes, editEpisode, getEpisodePorId, deleteEpisode, findEpisodeById };
+const updateHighlight = async (req, res) => {
+  const id = req.params.id;
+  res.json(await Episode.findOneAndUpdate({ _id: id }, { isHighlighted: req.body.isHighlighted }));
+}
+
+module.exports = { getEpisodes, getHighlightedEpisodes, postEpisodes, editEpisode, getEpisodePorId, deleteEpisode, findEpisodeById, updateHighlight };
