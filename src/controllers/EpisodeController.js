@@ -42,12 +42,15 @@ const getHighlightedEpisodes = async (req, res) => {
 };
 
 const postEpisodes = async (req, res) => {
-  const { name, description, imageUrl, episodeSrc, isHighlighted } = req.body;
+  const { name, description, imageUrl, episodeSrc, isHighlighted, time, date, episodeNumber } = req.body;
 
   await new Episode({
     name,
     description,
     imageUrl,
+    time,
+    date,
+    episodeNumber,
     episodeSrc,
     isHighlighted,
     likes: 0,
