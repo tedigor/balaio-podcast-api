@@ -43,10 +43,16 @@ const getHighlightedEpisodes = async (req, res) => {
 
 const postEpisodes = async (req, res) => {
   const { name, description, imageUrl, episodeSrc, isHighlighted } = req.body;
-  likes = 0;
-  active = true;
 
-  await new Episode({ name, description, imageUrl, episodeSrc, isHighlighted, likes, active }).save();
+  await new Episode({
+    name,
+    description,
+    imageUrl,
+    episodeSrc,
+    isHighlighted,
+    likes: 0,
+    active: true
+  }).save();
   res.status(201).json({ 'status': 'sucesso' });
 }
 
