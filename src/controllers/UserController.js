@@ -22,8 +22,6 @@ const getUserById = async (req, res, next) => {
     }
   };
 
-
-
 const formatErrors = (errors) => {
     const errorsArr = [];
     const keys = Object.keys(errors);

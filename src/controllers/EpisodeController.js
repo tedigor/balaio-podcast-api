@@ -16,28 +16,29 @@ const getEpisodePorId = async (req, res, next) => {
 };
 
 const getEpisodes = async (req, res) => {
-  const { page = 1, size = 10 } = req.query;
+  res.json(await Episode.find({ active: true }));
+  // const { page = 1, size = 10 } = req.query;
 
-  try {
-    const episodes = await Episode.find({ active: true })
-      .limit(size * 1)
-      .skip((page - 1) * size)
-      .exec();
+  // try {
+  //   const episodes = await Episode.find({ active: true })
+  //     .limit(size * 1)
+  //     .skip((page - 1) * size)
+  //     .exec();
 
-    const count = await Episode.countDocuments();
+  //   const count = await Episode.countDocuments();
 
-    res.json({
-      data: episodes,
-      totalPages: Math.ceil(count / size),
-      currentPage: page
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
+  //   res.json({
+  //     data: episodes,
+  //     totalPages: Math.ceil(count / size),
+  //     currentPage: page
+  //   });
+  // } catch (error) {
+  //   console.log(error.message);
+  // }
 };
 
 const getHighlightedEpisodes = async (req, res) => {
-  res.json(await Episode.find({ isHighlighted: false }));
+  res.json(await Episode.find({ active: true, isHighlighted: false }));
 };
 
 const postEpisodes = async (req, res) => {
