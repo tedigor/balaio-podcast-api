@@ -37,6 +37,10 @@ const getEpisodes = async (req, res) => {
   // }
 };
 
+const getAllEpisodes = async (req, res) => {
+  res.json(await Episode.find());
+};
+
 const getHighlightedEpisodes = async (req, res) => {
   res.json(await Episode.find({ active: true, isHighlighted: true }));
 };
@@ -80,4 +84,21 @@ const updateHighlight = async (req, res) => {
   res.json(await Episode.findOneAndUpdate({ _id: id }, { isHighlighted: req.body.isHighlighted }));
 }
 
-module.exports = { getEpisodes, getHighlightedEpisodes, postEpisodes, editEpisode, getEpisodePorId, deleteEpisode, findEpisodeById, updateHighlight };
+const activeEpisode = async (req, res) => {
+  req.episode.active = true;
+  await req.episode.save();
+  res.send('O episódio foi Ativado!');
+}
+
+module.exports = {
+  getEpisodes,
+  getAllEpisodes,
+  getHighlightedEpisodes,
+  postEpisodes,
+  editEpisode,
+  getEpisodePorId,
+  deleteEpisode,
+  findEpisodeById,
+  updateHighlight,
+  activeEpisode
+};

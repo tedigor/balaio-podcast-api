@@ -19,12 +19,14 @@ routes.post('/signin', UserController.createUser);
 
 // Episodes Routes
 routes.get('/episodes', EpisodeController.getEpisodes);
+routes.get('/private/episodes', EpisodeController.getAllEpisodes);
 routes.get('/episodes/highlights', EpisodeController.getHighlightedEpisodes);
 routes.get('/episodes/:id', EpisodeController.getEpisodePorId, EpisodeController.findEpisodeById);
 
 routes.post('/private/episodes', EpisodeController.postEpisodes);
 routes.put('/private/episodes/:id', EpisodeController.editEpisode);
 routes.put('/private/episodes/:id/highlight', EpisodeController.getEpisodePorId, EpisodeController.updateHighlight);
+routes.put('/private/episodes/:id/activate', EpisodeController.getEpisodePorId, EpisodeController.activeEpisode);
 routes.delete('/private/episodes/:id', EpisodeController.getEpisodePorId, EpisodeController.deleteEpisode);
 
 // Comments Routes
