@@ -13,7 +13,7 @@ routes.post(
 
 // Users Routes
 routes.get('/users', UserController.findAllUsers);
-routes.post('/users', UserController.createUser);
+routes.post('/signin', UserController.createUser);
 
 // Episodes Routes
 routes.get('/episodes', EpisodeController.getEpisodes);
