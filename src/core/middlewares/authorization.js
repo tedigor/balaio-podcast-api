@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 const User = require("../../models/User");
 
 module.exports = (req, res, next) => {
-    const token = req.headers['authorization']
+    const token = req.headers['Authorization']
     if (!token) {
         res.status(401);
         return res.json();
