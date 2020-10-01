@@ -68,5 +68,8 @@ const deleteEpisode = async (req, res) => {
   res.send('O episódio foi deletado!');
 }
 
+const findEpisodeById = async (req, res) => {
+  res.json(await Episode.findById(req.episode._id));
+}
 
-module.exports = { getEpisodes, getHighlightedEpisodes, postEpisodes, editEpisode, getEpisodePorId, deleteEpisode };
+module.exports = { getEpisodes, getHighlightedEpisodes, postEpisodes, editEpisode, getEpisodePorId, deleteEpisode, findEpisodeById };

@@ -96,6 +96,10 @@ const createUser = async (req, res) => {
 
 }
 
+const findUserById = async (req, res) => {
+    res.json(await User.findById(req.user._id));
+}
 
-module.exports = { findAllUsers, createUser, getUserById };
+
+module.exports = { findAllUsers, createUser, getUserById, findUserById };
 
