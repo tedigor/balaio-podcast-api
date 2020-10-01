@@ -10,17 +10,17 @@ const mapCodeError = {
 
 const getUserById = async (req, res, next) => {
     try {
-      let user = await User.findById(req.params.id);
-      if (user === null) {
-        res.status(404).json({ erro: 'Não foi encontrado um usuário com o id informado' });
-      } else {
-        req.user = user;
-        next();
-      }
+        let user = await User.findById(req.params.id);
+        if (user === null) {
+            res.status(404).json({ erro: 'Não foi encontrado um usuário com o id informado' });
+        } else {
+            req.user = user;
+            next();
+        }
     } catch (erro) {
-      res.status(500).json({ erro: 'O id informado não é válido' });
+        res.status(500).json({ erro: 'O id informado não é válido' });
     }
-  };
+};
 
 const formatErrors = (errors) => {
     const errorsArr = [];
@@ -52,45 +52,48 @@ const handleDatabaseErrors = (err, errorsResponse) => {
     });
 }
 
-module.exports = {
-    async findAll(req, res) {
-        const users = await User.find()
-        res.json(users.map(user => {
-            return {
-                id: user.id,
-                username: user.username
-            }
-        }));
-    },
-
-    async createUser(req, res) {
-        const { username, password } = req.body;
-
-        const errorsResponse = {
-            message: 'Creation failed',
-            status: 400,
-            errors: []
-        };
-        handlePassworLength(password, errorsResponse);
-
-        const hashedPassword = await bcrypt.hash(password, 10);
-
-        const newUser = await User.create({
-            username,
-            password: hashedPassword
-        }).catch(err => {
-            handleDatabaseErrors(err, errorsResponse);
-        });
-
-        if (errorsResponse.errors.length > 0) {
-            res.statusCode = 400
-            res.json(errorsResponse);
-        } else {
-            res.statusCode = 201;
-            res.json({ _id: newUser._id, username: newUser.username });
+const findAllUsers = async (req, res) => {
+    const users = await User.find({ active: true });
+    res.json(users.map(user => {
+        return {
+            id: user.id,
+            username: user.username,
+            role: user.role
         }
-
-    },
-    getUserById
+    }));
 }
+
+const createUser = async (req, res) => {
+    const { username, password, name } = req.body;
+    active = true;
+    const errorsResponse = {
+        message: 'Creation failed',
+        status: 400,
+        errors: []
+    };
+    handlePassworLength(password, errorsResponse);
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const newUser = await User.create({
+        username,
+        password: hashedPassword,
+        name,
+        role: 'DEFAULT'
+    }).catch(err => {
+        handleDatabaseErrors(err, errorsResponse);
+    });
+
+    if (errorsResponse.errors.length > 0) {
+        res.statusCode = 400
+        res.json(errorsResponse);
+    } else {
+        res.statusCode = 201;
+        res.json({ _id: newUser._id, username: newUser.username });
+    }
+
+}
+
+
+module.exports = { findAllUsers, createUser, getUserById };
 

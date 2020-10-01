@@ -2,7 +2,7 @@ const Comment = require('../models/Comment');
 
 
 const getCommentByEpisode = async (req, res) => {
-    res.json(await Comment.find({ episodeId: req.params.id }));
+    res.json(await Comment.find({ active: true ,episodeId: req.params.id }));
 }
 
 const postComment =  async (req, res) => {

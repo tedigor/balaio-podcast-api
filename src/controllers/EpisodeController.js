@@ -38,7 +38,7 @@ const getEpisodes = async (req, res) => {
 };
 
 const getHighlightedEpisodes = async (req, res) => {
-  res.json(await Episode.find({ active: true, isHighlighted: false }));
+  res.json(await Episode.find({ active: true, isHighlighted: true }));
 };
 
 const postEpisodes = async (req, res) => {

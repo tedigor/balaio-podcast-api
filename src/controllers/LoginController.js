@@ -6,7 +6,7 @@ const User = require('../models/User');
 const loginHandle = {
     true: (res, req, username) => {
         res.statusCode = 200;
-        var token = jwt.sign({ username }, process.env.SECRET, {
+        var token = jwt.sign({ _id, username }, process.env.SECRET, {
             expiresIn: 3600 // expires in 1hr
         });
         res.setHeader('Authorization', `bearer ${token}`);
@@ -29,7 +29,7 @@ module.exports = {
             });
         } else {
             await bcrypt.compare(password, user.password).then(resp => {
-                loginHandle[resp](res, req, username);
+                loginHandle[resp](res, req, username, user._id);
             });
         }
     }

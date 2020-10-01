@@ -12,7 +12,7 @@ routes.post(
 );
 
 // Users Routes
-routes.get('/users', UserController.findAll);
+routes.get('/users', UserController.findAllUsers);
 routes.post('/users', UserController.createUser);
 
 // Episodes Routes
