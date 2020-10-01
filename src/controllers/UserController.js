@@ -66,13 +66,11 @@ const findAllUsers = async (req, res) => {
 const createUser = async (req, res) => {
     const { username, password, name } = req.body;
     active = true;
-    console.log( username, password, name );
     const errorsResponse = {
         message: 'Creation failed',
         status: 400,
         errors: []
     };
-    console.log(password);
     handlePassworLength(password, errorsResponse);
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -97,7 +95,8 @@ const createUser = async (req, res) => {
 }
 
 const findUserById = async (req, res) => {
-    res.json(await User.findById(req.user._id));
+    const user = await User.findById(req.user._id);
+    res.json(user);
 }
 
 

@@ -28,7 +28,8 @@ mongoose.connect(process.env.MONGO_URL, {
                 User.create({
                     username: 'admin',
                     password: hashedPassword,
-                    role: 'ADMIN'
+                    role: 'ADMIN',
+                    name: 'Administrador'
                 }).catch(err => {
                     console.log(err);
                 })

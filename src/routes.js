@@ -26,7 +26,7 @@ routes.put('/private/episodes/:id', EpisodeController.editEpisode);
 routes.delete('/private/episodes/:id', EpisodeController.getEpisodePorId, EpisodeController.deleteEpisode);
 
 // Comments Routes
-routes.post('/private/comments', CommentController.postComment);
+routes.post('/comments', CommentController.postComment);
 routes.get('/comments/:id', CommentController.getCommentByEpisode);
 
 
