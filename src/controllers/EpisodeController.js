@@ -16,7 +16,7 @@ const getEpisodePorId = async (req, res, next) => {
 };
 
 const getEpisodes = async (req, res) => {
-  res.json(await Episode.find({ active: true }));
+  res.json(await Episode.find({ active: true }).sort({episodeNumber: -1}));
   // const { page = 1, size = 10 } = req.query;
 
   // try {
@@ -38,11 +38,11 @@ const getEpisodes = async (req, res) => {
 };
 
 const getAllEpisodes = async (req, res) => {
-  res.json(await Episode.find());
+  res.json(await Episode.find().sort({episodeNumber: -1}));
 };
 
 const getHighlightedEpisodes = async (req, res) => {
-  res.json(await Episode.find({ active: true, isHighlighted: true }));
+  res.json(await Episode.find({ active: true, isHighlighted: true }).sort({episodeNumber: -1}));
 };
 
 const postEpisodes = async (req, res) => {
