@@ -4,9 +4,9 @@ const User = require('../models/User');
 
 
 const loginHandle = {
-    true: (res, req, username) => {
+    true: (res, req, username, id) => {
         res.statusCode = 200;
-        var token = jwt.sign({ _id, username }, process.env.SECRET, {
+        var token = jwt.sign({ id, username }, process.env.SECRET, {
             expiresIn: 3600 // expires in 1hr
         });
         res.setHeader('Authorization', `bearer ${token}`);
