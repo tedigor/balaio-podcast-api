@@ -1,8 +1,9 @@
-FROM node:14
+FROM node:12.16-alpine
 WORKDIR /usr/src/app
-COPY package*.json ./
+COPY . .
+ENV MONGO_URL=mongodb://mongodb:27017/balaio
+ENV PORT=3000
+ENV SECRET = "SUELDO"
 RUN yarn install
-COPY ./src ./src
-ARG PORT=3000
 EXPOSE $PORT
 ENTRYPOINT [ "yarn", "start" ]
