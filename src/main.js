@@ -1,6 +1,7 @@
 const app = require('express')();
 require("dotenv").config();
 const User = require('./models/User');
+const Episode = require('./models/Episode');
 const bcrypt = require('bcrypt');
 
 const bodyParser = require("body-parser");
@@ -22,7 +23,7 @@ mongoose.connect(process.env.MONGO_URL, {
 }).then(() => {
     console.log('Connected to database');
 
-    User.exists({ username: 'admin' }).then(exists => {
+    User.exists({ username: 'admin' }).then(async exists => {
         if (!exists) {
             bcrypt.hash('admin', 10).then((hashedPassword) => {
                 User.create({
@@ -36,7 +37,19 @@ mongoose.connect(process.env.MONGO_URL, {
             })
             console.log('Usuario admin cadastrado')
         }
+
+        const episodes = require('../episodes.json');
+        const hasEpisodes = await Episode.countDocuments();
+        if (!hasEpisodes) {
+            Episode.insertMany(episodes).then(res => {
+                Episode.find({ active: true }).then(res => {
+                    console.log(res);
+                });
+            });
+        }
+
     });
+
 
 })
 mongoose.set('useFindAndModify', false);

@@ -1,0 +1,110 @@
+[
+  {
+    "name": "#63 - Mundo Fake",
+    "description": "Nada se cria, tudo se copia! No cinema, na música, na tv, na vida, será que estamos apenas fazendo cópias mal feitas de coisas que já foram realizadas antes? Nesse contexto de plágios descarados, remakes melhorados e versões 2.0, o Mundo está ficando cada vez mais Fake! Chegue ouvir a gente!",
+    "imageUrl": "https://balaio-teste.s3-sa-east-1.amazonaws.com/63+-+Mundo+fake+2.jpg",
+    "time": "1 hora 16 minutos",
+    "date": "16 de março de 2020",
+    "episodeNumber": "63",
+    "episodeSrc": "https://anchor.fm/balaiopodcast/embed/episodes/63---Mundo-Fake-eco756/a-a1u6a7h",
+    "isHighlighted": true,
+    "likes": 0,
+    "active": true
+  },
+  {
+    "name": "#64 - Coronavírus",
+    "description": "O papo é sério, mas pode ser leve também! Vem com a gente saber mais sobre o coronavírus e ouvir várias dicas de como vencer essa quarentena numa boa!",
+    "imageUrl": "https://balaio-teste.s3-sa-east-1.amazonaws.com/64+-+Corona+v%C3%ADrus.jpg",
+    "time": "1 hora 21 minutos",
+    "date": "24 de março de 2020",
+    "episodeNumber": "64",
+    "episodeSrc": "https://anchor.fm/balaiopodcast/embed/episodes/64---Coronavrus-eco755/a-a1u6a8u",
+    "isHighlighted": true,
+    "likes": 0,
+    "active": true
+  },
+  {
+    "name": "#65 - Dublagem - Com Leandro Luna",
+    "description": "Pra entender um pouco mais desse universo fantástico da dublagem, chega junto e dá o play! O Balaio conversou com Leandro Luna, um dos dubladores de 'Viva! A vida é uma festa'.",
+    "imageUrl": "https://balaio-teste.s3-sa-east-1.amazonaws.com/65+-+Dublagem.jpg",
+    "time": "1 hora 1 minutos",
+    "date": "3 de Abril de 2020",
+    "episodeNumber": "65",
+    "episodeSrc": "https://anchor.fm/balaiopodcast/embed/episodes/65---Dublagem---Com-Leandro-Luna-eco75m/a-a1u6ab4",
+    "isHighlighted": true,
+    "likes": 0,
+    "active": true
+  },
+  {
+    "name": "#66 - Malassombros: O Pé-de-bode",
+    "description": "Creindeuspai! O coisa ruim apareceu no Balaio, mas não se preocupa não que a gente domou o sarnento. Vem com a gente entender um pouco mais sobre o maior mal de várias crenças ao longo da história: o Tinhoso, vulgo Pé-de-bode.",
+    "imageUrl": "https://balaio-teste.s3-sa-east-1.amazonaws.com/66+-+o+p%C3%A9-de-bode.jpg",
+    "time": "1 hora 17 minutos",
+    "date": "10 de Abril de 2020",
+    "episodeNumber": "66",
+    "episodeSrc": "https://anchor.fm/balaiopodcast/embed/episodes/66---Malassombros-O-P-de-bode-eco74i/a-a1u6a7l",
+    "isHighlighted": true,
+    "likes": 0,
+    "active": true
+  },
+  {
+    "name": "#67 - O Poço",
+    "description": "Entramos no Poço! Um dos maiores sucessos recentes da Netflix, o longa-metragem oferece um banquete de referências e críticas. Vem com a gente dividir essa mesa antes que não sobre nada (óbvio!).",
+    "imageUrl": "https://balaio-teste.s3-sa-east-1.amazonaws.com/67+-+O+po%C3%A7o3.jpg",
+    "time": "43 minutos",
+    "date": "17 de Abril de 2020",
+    "episodeNumber": "67",
+    "episodeSrc": "https://anchor.fm/balaiopodcast/embed/episodes/67---O-Poo-ectr4d/a-a1v9rk8",
+    "isHighlighted": true,
+    "likes": 0,
+    "active": true
+  },
+  {
+    "name": "#68 - Pós-Corona - O mundo de ressaca",
+    "description": "Longe de ser provocada pela boa e velha cerveja, essa ressaca de Corona virá sobre todos nós, balaieiros e balaieiras! O que nos aguarda nesse novo mundo que surgirá depois da COVID-19?",
+    "imageUrl": "https://balaio-teste.s3-sa-east-1.amazonaws.com/68+-+P%C3%B3s-corona+(FINAL).jpg",
+    "time": "1 hora 4 minutos",
+    "date": "24 de Abril de 2020",
+    "episodeNumber": "68",
+    "episodeSrc": "https://anchor.fm/balaiopodcast/embed/episodes/68---Ps-Corona---O-mundo-de-ressaca-ed4l7l/a-a20k976",
+    "isHighlighted": true,
+    "likes": 0,
+    "active": true
+  },
+  {
+    "name": "#69 - Safadeza - Fetiches e Fantasias sexuais",
+    "description": "Vocês pediram e o Balaio atendeu! Não teria outro tema melhor para um episódio 69, não é mesmo?  Preparem-se para um Balaio sem filtros e sem nenhum pudor.",
+    "imageUrl": "https://balaio-teste.s3-sa-east-1.amazonaws.com/69+-+Safadeza.jpg",
+    "time": "58 minutos",
+    "date": "1 de maio de 2020",
+    "episodeNumber": "69",
+    "episodeSrc": "https://anchor.fm/balaiopodcast/embed/episodes/69---Safadeza---Fetiches-e-Fantasias-sexuais-edfc36/a-a22rm1a",
+    "isHighlighted": true,
+    "likes": 0,
+    "active": true
+  },
+  {
+    "name": "#71 - X Æ A-12 - O primeiro meta-humano",
+    "description": "O filho do Tony Stark da vida real nasceu! O pequeno X Æ A-12 está gerando muitos comentários na internet e não é porque vai herdar toda a fortuna do Elon Musk e nem porque seu nome é um enigma da fonética. Vem com a gente debater o que esse bebê tem a ver com manipulação genética e o futuro da humanidade!",
+    "imageUrl": "https://balaio-teste.s3-sa-east-1.amazonaws.com/71+-+X+AE+A-12.jpg",
+    "time": "56 minutos 09 segundos",
+    "date": "15 de maio de 2020",
+    "episodeNumber": "71",
+    "episodeSrc": "https://anchor.fm/balaiopodcast/embed/episodes/71---X--A-12---O-primeiro-meta-humano-ee22cu/a-a26m9dq",
+    "isHighlighted": true,
+    "likes": 0,
+    "active": true
+  },
+  {
+    "name": "#70 - Top3 - Bizarrices da TV",
+    "description": "A televisão pode ser uma fonte inesgotável de tosqueiras e a gente pode provar! Chegue junto pra viajar no tempo e no globo terrestre, visitando as maiores bizarrices da TV!",
+    "imageUrl": "https://balaio-teste.s3-sa-east-1.amazonaws.com/70+-+Top3+Bizarrices+da+TV.jpg",
+    "time": "55 minutos 25 segundos",
+    "date": "8 de maio de 2020",
+    "episodeNumber": "70",
+    "episodeSrc": "https://anchor.fm/balaiopodcast/embed/episodes/70---Top3---Bizarrices-da-TV-edokpm/a-a24osu3",
+    "isHighlighted": true,
+    "likes": 0,
+    "active": true
+  }
+]
